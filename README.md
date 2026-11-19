@@ -4,7 +4,7 @@
 ---
 
 ### 👤 Thông tin sinh viên
-- **Họ và tên:** *[Điền họ và tên của bạn]*
+- **Họ và tên:** Nguyễn Trọng Khánh
 - **Mã sinh viên:** *[Điền mã số sinh viên của bạn]*
 - **Lớp / Khóa:** *[Điền tên lớp/khóa học]*
 - **Môn học:** Lập trình Web (LTW) - Nhóm N1
