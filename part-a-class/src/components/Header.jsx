@@ -7,21 +7,13 @@ class Header extends Component {
 
     return (
       <header className="app-header">
-        <div className="header-brand">
-          <div className="brand-icon">💰</div>
-          <div>
-            <h1>Sổ Chi Tiêu Cá Nhân</h1>
-            <p className="badge-class">Phần A &bull; React Class Component</p>
-          </div>
+        <div className="header-title">
+          <h1>Sổ Chi Tiêu Cá Nhân</h1>
+          <span className="subtitle">Phần A - Class Component</span>
         </div>
 
         <div className="header-actions">
-          <button
-            type="button"
-            className="btn-toggle-clock"
-            onClick={onToggleClock}
-            title={showClock ? 'Ẩn đồng hồ để kích hoạt componentWillUnmount' : 'Hiện đồng hồ để kích hoạt componentDidMount'}
-          >
+          <button type="button" className="btn-toggle" onClick={onToggleClock}>
             {showClock ? 'Ẩn đồng hồ' : 'Hiện đồng hồ'}
           </button>
           {showClock && <Clock />}

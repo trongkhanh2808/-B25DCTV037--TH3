@@ -23,32 +23,22 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.updateDocumentTitle();
+    this.updateTitle();
   }
 
+  // Yeu cau 4: Cap nhat tieu de tab bang componentDidUpdate
   componentDidUpdate(prevProps, prevState) {
-    // Yêu cầu 4: Tiêu đề tab hiển thị tổng chi, cập nhật bằng componentDidUpdate
     if (
       prevState.expenses !== this.state.expenses ||
       prevState.filterCategory !== this.state.filterCategory
     ) {
-      console.log('[App] componentDidUpdate -> Cập nhật tiêu đề tab document.title');
-      this.updateDocumentTitle();
+      this.updateTitle();
     }
   }
 
-  calculateTotal() {
-    return this.state.expenses.reduce((sum, item) => sum + item.amount, 0);
-  }
-
-  calculateFilteredTotal(filtered) {
-    return filtered.reduce((sum, item) => sum + item.amount, 0);
-  }
-
-  updateDocumentTitle() {
-    const total = this.calculateTotal();
-    const formatted = total.toLocaleString('vi-VN');
-    document.title = `Tổng chi: ${formatted} đ - Sổ chi tiêu (Class)`;
+  updateTitle() {
+    const total = this.state.expenses.reduce((sum, item) => sum + item.amount, 0);
+    document.title = `Tổng chi: ${total.toLocaleString('vi-VN')} đ - Sổ chi tiêu`;
   }
 
   handleAddExpense(newExpense) {
@@ -57,13 +47,9 @@ class App extends Component {
     }));
   }
 
+  // Yeu cau 3: Xoa co xac nhan
   handleDeleteExpense(id, title) {
-    // Yêu cầu 3: Xóa có xác nhận (confirm dialog)
-    const isConfirmed = window.confirm(
-      `Bạn có chắc chắn muốn xóa khoản chi "${title}" không?`
-    );
-
-    if (isConfirmed) {
+    if (window.confirm(`Bạn có chắc chắn muốn xóa "${title}" không?`)) {
       this.setState((prevState) => ({
         expenses: prevState.expenses.filter((item) => item.id !== id)
       }));
@@ -83,14 +69,14 @@ class App extends Component {
   render() {
     const { expenses, filterCategory, showClock } = this.state;
 
-    // Lọc danh sách theo loại
+    // Loc danh sach theo loai
     const filteredExpenses =
       filterCategory === 'Tất cả'
         ? expenses
         : expenses.filter((e) => e.category === filterCategory);
 
-    const totalAll = this.calculateTotal();
-    const totalFiltered = this.calculateFilteredTotal(filteredExpenses);
+    const totalAll = expenses.reduce((sum, item) => sum + item.amount, 0);
+    const totalFiltered = filteredExpenses.reduce((sum, item) => sum + item.amount, 0);
 
     return (
       <div className="app-container">
@@ -107,12 +93,8 @@ class App extends Component {
             </div>
 
             <div className="layout-right">
-              <section className="card list-card">
-                <div className="list-card-header">
-                  <h2 className="card-title">
-                    <span>📋</span> Danh sách khoản chi
-                  </h2>
-                </div>
+              <div className="card">
+                <h2>Danh sách khoản chi</h2>
 
                 <ExpenseFilter
                   currentFilter={filterCategory}
@@ -133,16 +115,10 @@ class App extends Component {
                   onDelete={this.handleDeleteExpense}
                   filterCategory={filterCategory}
                 />
-              </section>
+              </div>
             </div>
           </div>
         </main>
-
-        <footer className="app-footer">
-          <p>
-            Bài tập Lập trình Web - <strong>Phần A: Class Component</strong>
-          </p>
-        </footer>
       </div>
     );
   }
