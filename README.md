@@ -7,7 +7,7 @@
 - **Họ và tên:** Nguyễn Trọng Khánh
 - **Mã sinh viên:** B25DCTV037
 - **Môn học:** Lập trình Web (LTW) - Nhóm N1
-- **Repository:** *[Điền link GitHub Repo PUBLIC của bạn]*
+- **Repository:** https://github.com/trongkhanh2808/-B25DCTV037--TH3
 
 ---
 
