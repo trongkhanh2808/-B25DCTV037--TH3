@@ -64,9 +64,8 @@ function ExpenseForm({ onAddExpense, isLoading }) {
     setDate(today);
     setErrors({});
 
-    // Yêu cầu 3: Dùng useRef để focus ô nhập nội dung sau khi thêm
+    // Focus lai o nhap sau khi them
     if (titleInputRef.current) {
-      console.log('[ExpenseForm] Dùng useRef để focus ô nhập sau khi thêm thành công');
       titleInputRef.current.focus();
     }
   };
@@ -84,9 +83,7 @@ function ExpenseForm({ onAddExpense, isLoading }) {
 
   return (
     <section className="card form-card">
-      <h2 className="card-title">
-        <span>➕</span> Thêm khoản chi mới (Hooks)
-      </h2>
+      <h2 className="card-title">Thêm khoản chi mới</h2>
 
       <form onSubmit={handleSubmit} noValidate>
         <div className="form-grid">

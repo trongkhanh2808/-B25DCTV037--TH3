@@ -10,46 +10,34 @@ function ExpenseList({
   error,
   onRetry
 }) {
-  // Trạng thái đang tải (Loading state)
+  // Dang tai du lieu
   if (loading) {
     return (
-      <div className="state-container loading-state">
-        <div className="spinner" />
-        <p className="state-title">Đang đồng bộ dữ liệu với API...</p>
-        <p className="state-subtitle">Vui lòng chờ trong giây lát</p>
+      <div className="state-container">
+        <p>Đang tải dữ liệu...</p>
       </div>
     );
   }
 
-  // Trạng thái lỗi (Error state)
+  // Co loi xay ra
   if (error) {
     return (
-      <div className="state-container error-state">
-        <div className="state-icon">⚠️</div>
-        <p className="state-title">Đã xảy ra sự cố!</p>
-        <p className="state-subtitle">{error}</p>
+      <div className="state-container">
+        <p style={{ color: 'red' }}>Lỗi: {error}</p>
         {onRetry && (
-          <button type="button" className="btn btn-primary btn-retry" onClick={onRetry}>
-            🔄 Thử tải lại
+          <button type="button" className="btn btn-secondary" onClick={onRetry}>
+            Thử lại
           </button>
         )}
       </div>
     );
   }
 
-  // Trạng thái danh sách rỗng (Empty state)
+  // Danh sach trong
   if (expenses.length === 0) {
     return (
       <div className="empty-state">
-        <div className="empty-icon">📭</div>
-        <p className="empty-title">Không tìm thấy khoản chi nào</p>
-        <p className="empty-subtitle">
-          {searchTerm
-            ? `Không có kết quả khớp với từ khóa "${searchTerm}".`
-            : filterCategory === 'Tất cả'
-            ? 'Hãy thêm khoản chi đầu tiên của bạn bằng form phía trên.'
-            : `Hiện chưa có khoản chi nào thuộc danh mục "${filterCategory}".`}
-        </p>
+        <p>Chưa có khoản chi nào.</p>
       </div>
     );
   }

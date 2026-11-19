@@ -23,7 +23,7 @@ function CategoryStats({ expenses }) {
 
   return (
     <section className="card stats-card">
-      <h3 className="stats-heading">📊 Thống kê chi tiêu theo từng loại</h3>
+      <h3 className="stats-heading">Thống kê chi tiêu theo từng loại</h3>
       <div className="stats-grid">
         {stats.map((item) => {
           const colorInfo = CATEGORY_COLORS[item.category];

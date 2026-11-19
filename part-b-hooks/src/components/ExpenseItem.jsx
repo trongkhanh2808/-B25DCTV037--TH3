@@ -30,7 +30,7 @@ function ExpenseItem({ expense, onDelete }) {
 
         <div className="expense-details">
           <h4 className="expense-title">{expense.title}</h4>
-          <span className="expense-date">📅 {formattedDate}</span>
+          <span className="expense-date">{formattedDate}</span>
         </div>
       </div>
 
@@ -42,9 +42,8 @@ function ExpenseItem({ expense, onDelete }) {
           type="button"
           className="btn-delete"
           onClick={() => onDelete(expense.id, expense.title)}
-          title="Xóa khoản chi này"
         >
-          🗑️ Xóa
+          Xóa
         </button>
       </div>
     </li>

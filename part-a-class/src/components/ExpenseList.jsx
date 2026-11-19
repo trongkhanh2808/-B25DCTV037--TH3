@@ -8,13 +8,7 @@ class ExpenseList extends Component {
     if (expenses.length === 0) {
       return (
         <div className="empty-state">
-          <div className="empty-icon">📭</div>
-          <p className="empty-title">Không tìm thấy khoản chi nào</p>
-          <p className="empty-subtitle">
-            {filterCategory === 'Tất cả'
-              ? 'Hãy thêm khoản chi đầu tiên của bạn bằng form phía trên.'
-              : `Hiện chưa có khoản chi nào thuộc danh mục "${filterCategory}".`}
-          </p>
+          <p>Chưa có khoản chi nào.</p>
         </div>
       );
     }

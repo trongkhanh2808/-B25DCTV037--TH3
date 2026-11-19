@@ -93,9 +93,7 @@ class ExpenseForm extends Component {
 
     return (
       <section className="card form-card">
-        <h2 className="card-title">
-          <span>➕</span> Thêm khoản chi mới
-        </h2>
+        <h2 className="card-title">Thêm khoản chi mới</h2>
 
         <form onSubmit={this.handleSubmit} noValidate>
           <div className="form-grid">
