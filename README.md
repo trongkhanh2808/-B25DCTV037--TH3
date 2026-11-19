@@ -5,8 +5,7 @@
 
 ### 👤 Thông tin sinh viên
 - **Họ và tên:** Nguyễn Trọng Khánh
-- **Mã sinh viên:** *[Điền mã số sinh viên của bạn]*
-- **Lớp / Khóa:** *[Điền tên lớp/khóa học]*
+- **Mã sinh viên:** B25DCTV037
 - **Môn học:** Lập trình Web (LTW) - Nhóm N1
 - **Repository:** *[Điền link GitHub Repo PUBLIC của bạn]*
 
